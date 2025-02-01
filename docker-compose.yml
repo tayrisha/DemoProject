@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  backend:
+    image: demo:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      - ALLOWED_ORIGIN=http://localhost
+    networks:
+      - app-network
+
+  frontend:
+    image: vite:1.0
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
