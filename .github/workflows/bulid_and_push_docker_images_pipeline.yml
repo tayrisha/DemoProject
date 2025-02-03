@@ -3,14 +3,14 @@ name: Build and Deploy Docker Image on Approved Pull Request
 on:
   pull_request_review:
     types: [submitted]
-    branches:
-      - main
   workflow_dispatch:
 
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    if: ${{ github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main' }}
+    runs-on: ubuntu-latest
+
 
     steps:
       # Step 1: Check out the code
