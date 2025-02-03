@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy:
     if: ${{ github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main' }}
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
 
 
     steps:
