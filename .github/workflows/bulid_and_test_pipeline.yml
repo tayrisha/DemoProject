@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: windows-latest
+    runs-on: linux-latest
 
     steps:
     # Step 1: Check out the code
