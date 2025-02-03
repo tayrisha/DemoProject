@@ -7,10 +7,14 @@ on:
 
 
 jobs:
+  display-github-event:
+    steps:
+      - name: Display GitHub event
+        run: echo "${{ toJson(github.event) }}"
+
   build-and-deploy:
     if: ${{ github.event_name == 'workflow_dispatch' || ( github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main' ) }}
     runs-on: ubuntu-latest
-
 
     steps:
       # Step 1: Check out the code
